@@ -1,9 +1,8 @@
 package com.izelozarslan.homework2.controller.contract;
 
-import com.izelozarslan.homework2.dto.ProductDTO;
-import com.izelozarslan.homework2.dto.ProductSaveRequest;
-import com.izelozarslan.homework2.dto.ProductUpdatePriceRequest;
-import com.izelozarslan.homework2.entity.Product;
+import com.izelozarslan.homework2.dto.product.ProductDTO;
+import com.izelozarslan.homework2.dto.product.ProductSaveRequest;
+import com.izelozarslan.homework2.dto.product.ProductUpdatePriceRequest;
 
 import java.util.List;
 
@@ -17,5 +16,5 @@ public interface ProductControllerContract {
 
     void deleteById(Long id);
 
-    Product updatePriceById(Long id, ProductUpdatePriceRequest productUpdatePriceRequest);
+    ProductDTO updatePriceById(Long id, ProductUpdatePriceRequest productUpdatePriceRequest);
 }

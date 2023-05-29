@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService extends BaseEntityService<Product, ProductRepository> {
 
-
     public ProductService(ProductRepository repository) {
         super(repository);
     }

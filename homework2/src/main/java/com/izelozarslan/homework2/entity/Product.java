@@ -14,17 +14,17 @@ import java.math.BigDecimal;
 public class Product extends BaseEntity {
 
     @Id
-    @GeneratedValue(generator ="Product" ,strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name ="Product" ,sequenceName = "PRODUCT_ID_SEQ" )
+    @GeneratedValue(generator = "Product", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "Product", sequenceName = "PRODUCT_ID_SEQ")
     private Long id;
 
-    @Column(name ="NAME" ,length = 100 ,nullable = false)
+    @Column(name = "NAME", length = 100, nullable = false)
     private String name;
 
-    @Column(name ="PRICE" ,precision = 12, scale = 2 ,nullable = false)
+    @Column(name = "PRICE", precision = 12, scale = 2, nullable = false)
     private BigDecimal price;
 
-    @Column(name ="DESCRIPTION" ,length = 500)
+    @Column(name = "DESCRIPTION", length = 500)
     private String description;
 
 
