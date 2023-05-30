@@ -26,16 +26,19 @@ public class UserControllerContractImpl implements UserControllerContract {
     @Override
     public List<UserDTO> findAll() {
         List<User> userList = userService.findAll();
-        if (userList.isEmpty()) {
-
-            throw new ItemNotFoundException(UserErrorMessage.USER_NOT_FOUND);
-        }
         return mapper.convertToUserDTOList(userList);
     }
 
     @Override
     public UserDTO findById(Long id) {
-        User user = userService.findByIdWithControl(id);
+        User user;
+
+        Optional<User> optionalUser = userService.findById(id);
+        if (optionalUser.isPresent()) {
+            user = optionalUser.get();
+        } else {
+            throw new ItemNotFoundException(UserErrorMessage.USER_NOT_FOUND);
+        }
         return mapper.convertToUserDTO(user);
     }
 
@@ -94,14 +97,13 @@ public class UserControllerContractImpl implements UserControllerContract {
     }
 
 
-
     @Override
     public void deleteById(Long id, UserDeleteRequest userDeleteRequest) {
 
-        User user =  userService.findByIdWithControl(id);
+        User user = userService.findByIdWithControl(id);
 
         if (!user.getUsername().equals(userDeleteRequest.username())
-                && !user.getPhoneNumber().equals(userDeleteRequest.phoneNumber())){
+                && !user.getPhoneNumber().equals(userDeleteRequest.phoneNumber())) {
             throw new BusinessException(UserErrorMessage.USERNAME_AND_PHONE_NUMBER_DOES_NOT_MATCH);
         }
 
