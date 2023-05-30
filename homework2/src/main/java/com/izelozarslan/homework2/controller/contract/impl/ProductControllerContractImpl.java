@@ -29,7 +29,7 @@ public class ProductControllerContractImpl implements ProductControllerContract 
     @Override
     public List<ProductDTO> findAll() {
         List<Product> productList = productService.findAll();
-        return mapper.convertToProductListDTO(productList);
+        return mapper.convertToProductDTOList(productList);
 
     }
 

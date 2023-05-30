@@ -14,7 +14,7 @@ public interface ProductMapper {
 
     ProductDTO convertToProductDTO(Product product);
 
-    List<ProductDTO> convertToProductListDTO(List<Product> productListt);
+    List<ProductDTO> convertToProductDTOList(List<Product> productList);
 
-    List<Product> convertToProductList(List<ProductDTO> productDTOListctDTO);
+    List<Product> convertToProductList(List<ProductDTO> productDTOListDTO);
 }
