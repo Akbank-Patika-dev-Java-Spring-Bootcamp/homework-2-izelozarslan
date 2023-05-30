@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User extends BaseEntity {
 
     @Id
@@ -37,7 +37,7 @@ public class User extends BaseEntity {
     private String password;
 
     @NotBlank
-    @Email
+    @Email(message = "Email must be in valid format")
     @Column(name = "EMAIL", length = 50, nullable = false, unique = true)
     private String email;
 
@@ -48,7 +48,7 @@ public class User extends BaseEntity {
     private String phoneNumber;
 
     @Column(name = "USER_TYPE", length = 30)
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private EnumUserType userType;
 
 
